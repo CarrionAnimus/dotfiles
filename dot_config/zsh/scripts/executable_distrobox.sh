@@ -6,6 +6,10 @@ get_containers (){
     podman ps -a --filter label=manager=distrobox --format "{{.Names}}"
 }
 
+get_running_containers (){
+    podman ps --filter label=manager=distrobox --format "{{.Names}}"
+}
+
 # Distrobox remove
 remove_container (){
 	echo "Warning!!! This will automatically stop and remove the selected container."
@@ -16,7 +20,7 @@ remove_container (){
 }
 
 stop_container (){
-	local SELECT_CONTAINER=$(get_containers | fzf)
+	local SELECT_CONTAINER=$(get_running_containers | fzf)
 	echo "${SELECT_CONTAINER} is being stoped."
 	echo -e "y" | distrobox-stop "${SELECT_CONTAINER}"
 }
