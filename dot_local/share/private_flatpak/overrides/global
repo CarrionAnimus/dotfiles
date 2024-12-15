@@ -1,7 +1,8 @@
 [Context]
-filesystems=xdg-config/gtk-3.0:ro;xdg-config/gtk-4.0:ro;xdg-config/Kvantum:ro;~/.local/share/fonts:ro;~/.local/share/themes:ro;~/.local/share/icons:ro;~/.icons:ro;~/.themes:ro;~/.fonts:ro
+filesystems=host-os:ro;xdg-config/gtk-3.0:ro;xdg-config/gtk-4.0:ro;xdg-config/Kvantum:ro;~/.local/share/fonts:ro;~/.local/share/themes:ro;~/.local/share/icons:ro;~/.icons:ro;~/.themes:ro;~/.fonts:ro
 
 [Environment]
+LD_PRELOAD=/var/run/host/usr/lib64/glibc-hwcaps/x86-64-v3/libhardened_malloc.so
 GTK_THEME=Orchis-Teal-Dark-Compact-Nord
 QT_STYLE_OVERRIDE=kvantum
 ELECTRON_OZONE_PLATFORM_HINT=auto
