@@ -1,0 +1,7 @@
+[Context]
+shared=network
+filesystems=!xdg-download;xdg-download/Vesktop:create
+
+[Session Bus Policy]
+org.kde.StatusNotifierWatcher=talk
+org.freedesktop.Notifications=talk
