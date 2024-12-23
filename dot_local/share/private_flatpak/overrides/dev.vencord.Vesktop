@@ -1,5 +1,7 @@
 [Context]
 shared=network
+sockets=pulseaudio
+devices=input
 filesystems=!xdg-download;xdg-download/Vesktop:create
 
 [Session Bus Policy]
