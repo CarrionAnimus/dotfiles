@@ -25,6 +25,15 @@ stop_container (){
 	echo -e "y" | distrobox-stop "${SELECT_CONTAINER}"
 }
 
+create_container (){
+    echo "Create Arch Container"
+    local CONTAINER_NAME
+    read -p "Enter Container Name: " CONTAINER_NAME
+    distrobox-create --name $CONTAINER_NAME \
+        --home $HOME/Documents/Distrobox/$CONTAINER_NAME --image ghcr.io/carrionanimus/cachyos-toolbox:latest \
+        --nvidia --volume $HOME/Documents/Distrobox/Cache/Arch:/var/cache/pacman/pkg
+}
+
 # List and enter selected container
 enter_container (){
     local SELECT_CONTAINER=$(get_containers | fzf)
@@ -42,6 +51,7 @@ while [[ "$#" -gt 0 ]]; do
     case $1 in
         q) stop_container;;
         rm) remove_container;;
+        c) create_container;;
         *) echo "Unknown parameter: $1";;
     esac
     shift
