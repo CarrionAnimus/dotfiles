@@ -7,39 +7,41 @@ filesystems=!host-etc;!/mnt;!~/.bash_profile;!/run/media;!home;!/var;!~/.bashrc;
 persistent=.;
 
 [Session Bus Policy]
-com.canonical.Unity=none
 org.kde.kpasswdserver=none
+com.canonical.Unity=none
 org.kde.kconfig.notify=none
 org.gnome.Software=none
 io.missioncenter.MissionCenter.Gatherer=none
 org.freedesktop.impl.portal.PermissionStore=none
+org.gnome.Shell.Screenshot=none
 org.kde.kwalletd5=none
 org.kde.*=none
 org.freedesktop.Tracker3.Writeback=none
-org.kde.StatusNotifierWatcher=none
 org.freedesktop.PowerManagement=none
 org.gtk.vfs.*=none
 org.kde.kiod5=none
 org.kde.kded5=none
 org.kde.JobViewServer=none
-ca.desrt.dconf=none
+org.kde.StatusNotifierWatcher=none
 org.gnome.SessionManager=none
 com.canonical.indicator.application=none
 org.freedesktop.Notifications=none
 org.kde.kiod6=none
 org.kde.kded6=none
-org.kde.KGlobalSettings=none
-org.freedesktop.secrets=none
 org.gnome.SettingsDaemon=none
+org.kde.KGlobalSettings=none
+org.kde.kwin.Screenshot=none
 org.gnome.Settings=none
+org.freedesktop.secrets=none
+ca.desrt.dconf=none
 org.kde.kpasswdserver6=none
 org.freedesktop.Flatpak=none
 org.gnome.SettingsDaemon.MediaKeys=none
 com.canonical.Unity.LauncherEntry=none
 org.freedesktop.ScreenSaver=none
 org.a11y.Bus=none
-com.canonical.AppMenu.Registrar=none
 org.freedesktop.FileManager1=none
+com.canonical.AppMenu.Registrar=none
 
 [System Bus Policy]
 org.freedesktop.fwupd=none
