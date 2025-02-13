@@ -31,7 +31,9 @@ create_container (){
     read -p "Enter Container Name: " CONTAINER_NAME
     distrobox-create --name $CONTAINER_NAME \
         --home $HOME/Documents/Distrobox/$CONTAINER_NAME --image ghcr.io/carrionanimus/cachyos-toolbox:latest \
-        --nvidia --volume $HOME/Documents/Distrobox/Cache/Arch:/var/cache/pacman/pkg
+        --volume $HOME/Documents/Distrobox/Cache/Arch:/var/cache/pacman/pkg \
+        --volume /usr/share/vulkan/icd.d/nvidia_icd.x86_64.json:/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json:ro \
+        --nvidia
 }
 
 # List and enter selected container
