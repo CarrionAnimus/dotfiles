@@ -33,7 +33,7 @@ check_requirements(){
 check_requirements
 
 GUM_SELECT="gum choose --height=30 --selected.bold --selected.underline"
-DEST_DIR="${HOME}/.cache/corse"
+DEST_DIR="${HOME}/.cache/chopper"
 mkdir -p "${DEST_DIR}"
 
 # Defaults to PWD, but can be overwritten with `-d`
