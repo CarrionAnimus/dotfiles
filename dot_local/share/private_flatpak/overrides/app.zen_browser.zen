@@ -1,0 +1,7 @@
+[Context]
+shared=network
+sockets=pulseaudio
+filesystems=!host-os
+
+[Environment]
+LD_PRELOAD=

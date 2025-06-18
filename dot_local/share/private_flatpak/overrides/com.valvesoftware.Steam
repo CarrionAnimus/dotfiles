@@ -1,0 +1,20 @@
+[Context]
+shared=network
+sockets=pulseaudio;x11
+devices=input
+features=per-app-dev-shm;multiarch;devel
+filesystems=!host-os
+
+[Environment]
+LD_PRELOAD=
+
+[System Bus Policy]
+org.freedesktop.UDisks2=talk
+org.freedesktop.UPower=talk
+
+[Session Bus Policy]
+org.gnome.SettingsDaemon.MediaKeys=talk
+org.freedesktop.Notifications=talk
+org.freedesktop.PowerManagement=talk
+org.freedesktop.ScreenSaver=talk
+org.kde.StatusNotifierWatcher=talk

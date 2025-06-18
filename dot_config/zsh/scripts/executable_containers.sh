@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-
 # image downloader
 gallery-dl () {
     podman run \

@@ -1,0 +1,6 @@
+[Context]
+shared=network
+sockets=pulseaudio;x11
+devices=input
+features=multiarch
+filesystems=xdg-config/MangoHud:ro;~/Games:rw
