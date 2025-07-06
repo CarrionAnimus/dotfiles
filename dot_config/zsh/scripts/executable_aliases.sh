@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
 
-
 alias reload='systemctl --user daemon-reload'
-alias get-icons='wget -qO- https://git.io/papirus-icon-theme-install | env DESTDIR="$HOME/.local/share/icons" sh'
+alias rwire='systemctl --user restart pipewire pipewire-pulse wireplumber'
 alias setup-gnome='~/.config/zsh/scripts/gnome.sh'
 
 alias boxy='~/.config/zsh/scripts/distrobox.sh'

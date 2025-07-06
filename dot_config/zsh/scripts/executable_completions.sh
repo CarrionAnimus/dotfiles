@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
 # bluebuild
-eval "$(bluebuild completions zsh || true)"
+source <(bluebuild completions zsh)
