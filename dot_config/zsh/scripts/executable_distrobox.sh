@@ -73,10 +73,10 @@ fi
 # Arguments
 while [[ "$#" -gt 0 ]]; do
     case $1 in
-        q) stop_container;;
-        rm) remove_container;;
-        c) create_container;;
-        *) echo "Unknown parameter: $1";;
+        q|--quit) stop_container;;
+        rm|--remove) remove_container;;
+        c|--create) create_container;;
+        *) echo "Unknown parameter: $1"; exit 1;;
     esac
     shift
 done
