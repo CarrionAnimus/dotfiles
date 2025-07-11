@@ -30,28 +30,30 @@ stop_container (){
 create_container (){
     echo "Select Container Variant"
 
+    local DISTROBOX_HOME="$HOME/Documents/Distrobox"
+
+    mkdir -p "$DISTROBOX_HOME/Cache/Arch"
+    mkdir -p "$DISTROBOX_HOME/Cache/Debian"
+
     local CONTAINER_VARIANT=(
         "ghcr.io/carrionanimus/cachyos-toolbox:latest"
         "quay.io/toolbx-images/debian-toolbox:unstable"
     )
 
+    declare -A CONTAINER_CACHE
+    CONTAINER_CACHE["ghcr.io/carrionanimus/cachyos-toolbox:latest"]="$DISTROBOX_HOME/Cache/Arch:/var/cache/pacman/pkg"
+    CONTAINER_CACHE["quay.io/toolbx-images/debian-toolbox:unstable"]="$DISTROBOX_HOME/Cache/Debian:/var/cache/apt/archives"
+
     local SELECT_CONTAINER_VARIANT
     SELECT_CONTAINER_VARIANT=$(printf "%s\n" "${CONTAINER_VARIANT[@]}" | fzf)
 
-    if [ "$SELECT_CONTAINER_VARIANT" = "ghcr.io/carrionanimus/cachyos-toolbox:latest" ]; then
-        local CONTAINER_PACKAGE_CACHE="$HOME/Documents/Distrobox/Cache/Arch:/var/cache/pacman/pkg"
-    elif [ "$SELECT_CONTAINER_VARIANT" = "quay.io/toolbx-images/debian-toolbox:unstable" ]; then
-        local CONTAINER_PACKAGE_CACHE="$HOME/Documents/Distrobox/Cache/Debian:/var/cache/apt/archives"
-    fi
-
-    mkdir -p "$HOME/Documents/Distrobox/Cache/Arch"
-    mkdir -p "$HOME/Documents/Distrobox/Cache/Debian"
+    local CONTAINER_PACKAGE_CACHE="${CONTAINER_CACHE[$SELECT_CONTAINER_VARIANT]}"
 
     local CONTAINER_NAME
     read -rp "Enter Container Name: " CONTAINER_NAME
 
     distrobox-create --name "$CONTAINER_NAME" \
-        --home "$HOME/Documents/Distrobox/$CONTAINER_NAME" --image "$SELECT_CONTAINER_VARIANT" \
+        --home "$DISTROBOX_HOME/$CONTAINER_NAME" --image "$SELECT_CONTAINER_VARIANT" \
         --volume "$CONTAINER_PACKAGE_CACHE" \
         --volume /usr/share/vulkan/icd.d/nvidia_icd.x86_64.json:/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json:ro \
         --nvidia
