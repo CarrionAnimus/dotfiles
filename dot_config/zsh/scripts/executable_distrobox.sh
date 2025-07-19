@@ -59,6 +59,27 @@ create_container (){
         --nvidia
 }
 
+clear_container_cache (){
+    local DISTROBOX_HOME="$HOME/Documents/Distrobox"
+
+    local CONTAINER_VARIANT=(
+        "Arch"
+        "Debian"
+    )
+    
+    declare -A CONTAINER_CACHE
+    CONTAINER_CACHE["Arch"]="$DISTROBOX_HOME/Cache/Arch"
+    CONTAINER_CACHE["Debian"]="$DISTROBOX_HOME/Cache/Debian"
+
+    echo "WARNING THIS WILL DELETE ALL PACKAGE CACHE!!!" && sleep 3
+    local SELECT_CONTAINER_VARIANT
+    SELECT_CONTAINER_VARIANT=$(printf "%s\n" "${CONTAINER_VARIANT[@]}" | fzf)
+
+    local CONTAINER_PACKAGE_CACHE="${CONTAINER_CACHE[$SELECT_CONTAINER_VARIANT]}"
+
+    rm -rf "${CONTAINER_PACKAGE_CACHE:?}/"*
+}
+
 # List and enter selected container
 enter_container (){
     local SELECT_CONTAINER
@@ -77,6 +98,7 @@ while [[ "$#" -gt 0 ]]; do
     case $1 in
         q|--quit) stop_container;;
         rm|--remove) remove_container;;
+        rmc|--clear-cache) clear_container_cache;;
         c|--create) create_container;;
         *) echo "Unknown parameter: $1"; exit 1;;
     esac
