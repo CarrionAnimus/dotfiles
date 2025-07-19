@@ -475,6 +475,28 @@ window-rule {
 }
 
 window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
+window-rule {
     match app-id="^(xdg-desktop-portal-(gtk|gnome))$"
     match app-id="^(thunar|Thunar|nautilus|Nautilus)$"
     match app-id="^(discord|armcord|webcord|vesktop|foot)$"
@@ -499,8 +521,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"trivalent$"# title="^((Open|Save) File)$"
-    match app-id=r#"trivalent$"# title="^((Open|Save) File)$"
+    match title="^(All Files)$"
+    match title="^((Open|Save) File)$"
     match title="^(Open (Folder|File))$"
 
     match title="^((Create new document|Import Images|Open Images) — Krita)$"
@@ -512,12 +534,9 @@ window-rule {
     default-window-height { proportion 0.60; }
 }
 
+// Disable all screen capture
 window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    match app-id=r#"^*$"#
 
     block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
 }
