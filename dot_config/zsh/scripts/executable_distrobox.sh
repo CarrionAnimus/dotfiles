@@ -53,10 +53,12 @@ create_container (){
     read -rp "Enter Container Name: " CONTAINER_NAME
 
     distrobox-create --name "$CONTAINER_NAME" \
-        --home "$DISTROBOX_HOME/$CONTAINER_NAME" --image "$SELECT_CONTAINER_VARIANT" \
+        --home "$DISTROBOX_HOME/$CONTAINER_NAME" --image "$SELECT_CONTAINER_VARIANT" --hostname "$CONTAINER_NAME" \
         --volume "$CONTAINER_PACKAGE_CACHE" \
-        --volume /usr/share/vulkan/icd.d/nvidia_icd.x86_64.json:/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json:ro \
-        --nvidia
+        --volume /usr/share/vulkan/icd.d/nvidia_icd.x86_64.json:/usr/share/vulkan/icd.d/nvidia_icd.json:ro \
+        --nvidia \
+        --additional-packages helix \
+        --unshare-devsys --unshare-groups --unshare-process
 }
 
 clear_container_cache (){
