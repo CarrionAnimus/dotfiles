@@ -58,7 +58,8 @@ create_container (){
         --volume /usr/share/vulkan/icd.d/nvidia_icd.x86_64.json:/usr/share/vulkan/icd.d/nvidia_icd.json:ro \
         --nvidia \
         --additional-packages helix \
-        --unshare-devsys --unshare-groups --unshare-process
+        --unshare-devsys --unshare-groups --unshare-process \
+        --init-hooks "install -o 1000 -g 1000 -d /tmp/.X11-unix-$(cat /etc/hostname)-upper;install -o 1000 -g 1000 -d /tmp/.X11-unix-$(cat /etc/hostname)-work;mount -t overlay -o lowerdir=/tmp/.X11-unix,upperdir=/tmp/.X11-unix-$(cat /etc/hostname)-upper,workdir=/tmp/.X11-unix-$(cat /etc/hostname)-work overlay /tmp/.X11-unix"
 }
 
 clear_container_cache (){
