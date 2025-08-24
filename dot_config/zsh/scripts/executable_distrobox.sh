@@ -32,8 +32,8 @@ create_container (){
 
     local DISTROBOX_HOME="$HOME/Documents/Distrobox"
 
-    mkdir -p "$DISTROBOX_HOME/Cache/Arch"
-    mkdir -p "$DISTROBOX_HOME/Cache/Debian"
+    podman volume create --ignore -l distrobox_package_cache arch_package_cache
+    podman volume create --ignore -l distrobox_package_cache debian_package_cache
 
     local CONTAINER_VARIANT=(
         "ghcr.io/carrionanimus/cachyos-toolbox:latest"
@@ -41,8 +41,8 @@ create_container (){
     )
 
     declare -A CONTAINER_CACHE
-    CONTAINER_CACHE["ghcr.io/carrionanimus/cachyos-toolbox:latest"]="$DISTROBOX_HOME/Cache/Arch:/var/cache/pacman/pkg"
-    CONTAINER_CACHE["quay.io/toolbx-images/debian-toolbox:unstable"]="$DISTROBOX_HOME/Cache/Debian:/var/cache/apt/archives"
+    CONTAINER_CACHE["ghcr.io/carrionanimus/cachyos-toolbox:latest"]="arch_package_cache:/var/cache/pacman/pkg"
+    CONTAINER_CACHE["quay.io/toolbx-images/debian-toolbox:unstable"]="debian_package_cache:/var/cache/apt/archives"
 
     local SELECT_CONTAINER_VARIANT
     SELECT_CONTAINER_VARIANT=$(printf "%s\n" "${CONTAINER_VARIANT[@]}" | fzf)
@@ -63,24 +63,24 @@ create_container (){
 }
 
 clear_container_cache (){
-    local DISTROBOX_HOME="$HOME/Documents/Distrobox"
-
     local CONTAINER_VARIANT=(
         "Arch"
         "Debian"
     )
     
     declare -A CONTAINER_CACHE
-    CONTAINER_CACHE["Arch"]="$DISTROBOX_HOME/Cache/Arch"
-    CONTAINER_CACHE["Debian"]="$DISTROBOX_HOME/Cache/Debian"
-
-    echo "WARNING THIS WILL DELETE ALL PACKAGE CACHE!!!" && sleep 3
+    CONTAINER_CACHE["Arch"]="arch_package_cache"
+    CONTAINER_CACHE["Debian"]="debian_package_cache"
+    
+    echo "WARNING THIS WILL DELETE ALL PACKAGE CACHE!!!"
+    sleep 3
     local SELECT_CONTAINER_VARIANT
     SELECT_CONTAINER_VARIANT=$(printf "%s\n" "${CONTAINER_VARIANT[@]}" | fzf)
 
     local CONTAINER_PACKAGE_CACHE="${CONTAINER_CACHE[$SELECT_CONTAINER_VARIANT]}"
 
-    rm -rf "${CONTAINER_PACKAGE_CACHE:?}/"*
+    podman volume rm "$CONTAINER_PACKAGE_CACHE"
+    podman volume create --ignore -l distrobox_package_cache "$CONTAINER_PACKAGE_CACHE"
 }
 
 # List and enter selected container
