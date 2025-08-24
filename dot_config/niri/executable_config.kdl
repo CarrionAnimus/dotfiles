@@ -1,5 +1,9 @@
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration
+output "HDMI-A-1"{
+    mode "2560x1080@74.991"
+    focus-at-startup
+}
 
 input {
     keyboard {
