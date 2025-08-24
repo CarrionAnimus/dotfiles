@@ -187,6 +187,9 @@ environment {
     __GLX_VENDOR_LIBRARY_NAME "nvidia"
     NVD_BACKEND "direct"
 
+    // Temporary Nvidia fix
+    GSK_RENDERER "ngl"
+    
     // Theming
     XCURSOR_SIZE "24"
     XCURSOR_THEME "Vimix-Cursors"
