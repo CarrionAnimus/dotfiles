@@ -7,17 +7,17 @@
   "spacing": 12, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
-    "wlr/workspaces",
+    //"wlr/workspaces",
     "custom/media",
   ],
   "modules-center": ["clock"],
   "modules-right": [
     "idle_inhibitor",
-    "network",
+    //"network",
     "power-profiles-daemon",
-    //"cpu",
-    //"memory",
-    //"temperature",
+    "cpu",
+    "memory",
+    "temperature",
     "wireplumber",
     "custom/power",
     "tray",
@@ -154,7 +154,7 @@
   "custom/media": {
     "format": "{icon} {text}",
     "return-type": "json",
-    "max-length": 40,
+    "max-length": 64,
     "format-icons": {
       "spotify": "",
       "default": "󰎇",

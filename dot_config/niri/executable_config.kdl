@@ -172,6 +172,7 @@ spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface color-sche
 spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface font-name 'FiraCode Nerd Font 12'"
 spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface text-scaling-factor 1"
 spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.wm.preferences button-layout :"
+// spawn-at-startup "qs" "-c" "bar"
 spawn-at-startup "waybar"
 spawn-at-startup "swayidle"
 spawn-at-startup "xwayland-satellite"
