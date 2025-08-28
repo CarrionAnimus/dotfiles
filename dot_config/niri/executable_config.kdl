@@ -178,6 +178,7 @@ spawn-at-startup "swww-daemon" "-q"
 spawn-at-startup "swayidle"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "foot"
+spawn-at-startup "flatpak" "run" "com.github.wwmm.easyeffects"
 
 environment {
     DISPLAY ":0"
@@ -536,7 +537,7 @@ window-rule {
 
     match title="^((Create new document|Import Images|Open Images) — Krita)$"
     match title="^(Project Manager|Import Media|Configure Krita)$"
-    match app-id="^(imv|mpv|pavucontrol)$"
+    match app-id="^(imv|mpv|org.pulseaudio.pavucontrol)$"
 
     open-floating true
     default-column-width { proportion 0.55; }
