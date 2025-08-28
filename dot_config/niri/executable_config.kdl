@@ -162,8 +162,12 @@ layout {
     }
 }
 
-// Startup
+//Named Workspace
+workspace "misc"
+workspace "browser"
+workspace "gaming"
 
+// Startup
 prefer-no-csd
 spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface cursor-theme 'Vimix-Cursors'"
 spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface gtk-theme 'Orchis-Teal-Dark-Compact-Nord'"
@@ -542,6 +546,26 @@ window-rule {
     open-floating true
     default-column-width { proportion 0.55; }
     default-window-height { proportion 0.60; }
+}
+
+// Move to named workspaces
+window-rule {
+    match app-id="^(com.github.wwmm.easyeffects|foot)$"
+    
+    open-on-workspace "misc"
+}
+
+window-rule {
+    match app-id="^(trivalent)$"
+
+    open-on-workspace "browser"
+}
+
+window-rule {
+    match app-id="^(faugus-launcher)$"
+    match app-id="^(steam_app_(.+))$"
+    
+    open-on-workspace "gaming"
 }
 
 // Disable all screen capture
