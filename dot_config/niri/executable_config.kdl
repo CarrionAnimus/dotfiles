@@ -179,7 +179,7 @@ spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.wm.preferences butto
 // spawn-at-startup "qs" "-c" "bar"
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon" "-q"
-spawn-at-startup "swayidle"
+spawn-at-startup "bash" "-c" "swayidle -w timeout 240 'niri msg action power-off-monitors' timeout 300 'swaylock --image ~/.cache/chopper/wallpaper'"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "foot"
 spawn-at-startup "flatpak" "run" "com.github.wwmm.easyeffects"
@@ -247,7 +247,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+E hotkey-overlay-title="Open a File Manager: thunar" { spawn "thunar"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "--image" "~/.cache/chopper/wallpaper"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "bash" "-c" "niri msg action power-off-monitors && swaylock --image ~/.cache/chopper/wallpaper"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
@@ -562,7 +562,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^(faugus-launcher)$"
+    match app-id="^(faugus-launcher|krita)$"
     match app-id="^(steam_app_(.+))$"
     
     open-on-workspace "gaming"
