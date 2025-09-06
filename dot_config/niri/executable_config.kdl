@@ -59,7 +59,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "never"
+    center-focused-column "on-overflow"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -242,12 +242,12 @@ animations {
     }
 
     window-open {
-        duration-ms 150
+        duration-ms 100
         curve "ease-out-expo"
     }
 
     window-close {
-        duration-ms 150
+        duration-ms 100
         curve "ease-out-quad"
     }
 
@@ -530,6 +530,15 @@ window-rule {
     open-maximized false
 }
 
+// Disable all screen capture
+window-rule {
+    block-out-from "screen-capture"
+}
+
+layer-rule {
+    block-out-from "screen-capture"
+}
+
 window-rule {
     match is-window-cast-target=true
 
@@ -608,11 +617,4 @@ window-rule {
     match app-id="^(steam_app_(.+))$"
     
     open-on-workspace "gaming"
-}
-
-// Disable all screen capture
-window-rule {
-    match app-id=r#"^*$"#
-
-    block-out-from "screen-capture"
 }
