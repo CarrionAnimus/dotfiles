@@ -76,7 +76,7 @@ org.freedesktop.timesync1=none
 
 [Environment]
 LD_PRELOAD=/var/run/host/usr/lib64/glibc-hwcaps/x86-64-v3/libhardened_malloc.so
-GTK_THEME=Orchis-Teal-Dark-Compact-Nord
+GTK_THEME=catppuccin-mocha-teal-standard+default
 QT_STYLE_OVERRIDE=kvantum
 ELECTRON_OZONE_PLATFORM_HINT=auto
-ICON_THEME=Papirus-Dark
+ICON_THEME=YAMIS
