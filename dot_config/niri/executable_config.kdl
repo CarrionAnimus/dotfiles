@@ -49,9 +49,18 @@ input {
     focus-follows-mouse max-scroll-amount="90%"
 }
 
+// Overview
+overview {
+    zoom 0.25
+    backdrop-color "#11111B"
+}
+
 layout {
     // Set gaps around windows in logical pixels.
     gaps 12
+
+    // Color when no wallpaper is active
+    background-color "#11111B"
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
