@@ -599,7 +599,7 @@ window-rule {
     match title="^((Open|Save) File)$"
     match title="^(Open (Folder|File))$"
 
-    match title="^((Create new document|Import Images|Open Images|Brush Editor) — Krita)$"
+    match title="^((.+) — Krita)$"
     match title="^(Project Manager|Import Media|Configure Krita)$"
     match app-id="^(imv|mpv|org.pulseaudio.pavucontrol)$"
 
@@ -626,4 +626,11 @@ window-rule {
     match app-id="^(steam_app_(.+))$"
     
     open-on-workspace "gaming"
+}
+
+// Maximize
+window-rule {
+    match app-id="^(krita)$"
+
+    open-maximized true
 }
