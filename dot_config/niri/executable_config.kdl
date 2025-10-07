@@ -599,7 +599,7 @@ window-rule {
     match title="^((Open|Save) File)$"
     match title="^(Open (Folder|File))$"
 
-    match title="^((Create new document|Import Images|Open Images) — Krita)$"
+    match title="^((Create new document|Import Images|Open Images|Brush Editor) — Krita)$"
     match title="^(Project Manager|Import Media|Configure Krita)$"
     match app-id="^(imv|mpv|org.pulseaudio.pavucontrol)$"
 
