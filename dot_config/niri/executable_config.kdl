@@ -203,7 +203,7 @@ environment {
     NVD_BACKEND "direct"
 
     // Temporary Nvidia fix
-    GSK_RENDERER "ngl"
+    // GSK_RENDERER "ngl"
     
     // Theming
     XCURSOR_SIZE "24"
@@ -218,7 +218,7 @@ environment {
 
     // Default to Wayland
     GDK_BACKEND "wayland,x11,*"
-    SDL_VIDEODRIVER "wayland"
+    SDL_VIDEODRIVER "wayland,x11"
     CLUTTER_BACKEND "wayland"
     QT_QPA_PLATFORM "wayland;xcb"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
