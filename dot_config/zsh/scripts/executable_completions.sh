@@ -2,3 +2,4 @@
 
 # bluebuild
 source <(bluebuild completions zsh)
+source /etc/profile
