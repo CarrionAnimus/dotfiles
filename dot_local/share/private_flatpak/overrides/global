@@ -3,7 +3,7 @@ shared=!network;!ipc;
 sockets=!x11;wayland;!pulseaudio;!session-bus;!system-bus;!fallback-x11;!ssh-auth;!pcsc;!cups;!gpg-agent;!inherit-wayland-socket;
 devices=dri;!all;!kvm;!shm;!input;!usb;
 features=!devel;!multiarch;!bluetooth;!canbus;!per-app-dev-shm;
-filesystems=!host-etc;!/mnt;!~/.bash_profile;!/run/media;!home;!/var;!~/.bashrc;!/var/home;!host;!/home;!/run;!/media;host-os:ro;xdg-config/gtk-3.0:ro;xdg-config/gtk-4.0:ro;xdg-config/Kvantum:ro;~/.local/share/fonts:ro;~/.local/share/themes:ro;~/.local/share/icons:ro;~/.icons:ro;~/.themes:ro;~/.fonts:ro;~/.config/dxvk/dxvk.conf:ro;
+filesystems=!host-etc;!/mnt;!~/.bash_profile;!/run/media;!home;!/var;!~/.bashrc;!/var/home;!host;!/home;!/run;!/media;host-os:ro;xdg-config/gtk-3.0:ro;xdg-config/gtk-4.0:ro;xdg-config/Kvantum:ro;~/.local/share/fonts:ro;~/.local/share/themes:ro;~/.local/share/icons:ro;~/.icons:ro;~/.themes:ro;~/.fonts:ro;
 persistent=.;
 
 [Session Bus Policy]
@@ -85,7 +85,7 @@ QT_STYLE_OVERRIDE=kvantum
 GTK_THEME=catppuccin-mocha-teal-standard+default
 ICON_THEME=YAMIS
 ELECTRON_OZONE_PLATFORM_HINT=auto
-DXVK_CONFIG_FILE=~/.config/dxvk/dxvk.conf
+DXVK_CONFIG='dxgi.customDeviceId = 2204; dxgi.customVendorId = 10DE; d3d9.customDeviceId = 2204; d3d9.customVendorId = 10DE; dxgi.customDeviceDesc = "NVIDIA GeForce RTX 3090"; d3d9.customDeviceDesc = "NVIDIA GeForce RTX 3090"'
 PROTON_ENABLE_NGX_UPDATER=1
 DXVK_NVAPI_SET_NGX_DEBUG_OPTIONS=DLSSIndicator=0,DLSSGIndicator=0
 DXVK_NVAPI_DRS_NGX_DLSS_RR_OVERRIDE=on
