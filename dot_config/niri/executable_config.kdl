@@ -196,14 +196,15 @@ environment {
     XDG_SESSION_TYPE "wayland"
     XDG_SESSION_DESKTOP "Niri"
 
+    // Default to helix
+    EDITOR "hx"
+    VISUAL "hx"
+
     // Nvidia
     LIBVA_DRIVER_NAME "nvidia"
     GBM_BACKEND "nvidia-drm"
     __GLX_VENDOR_LIBRARY_NAME "nvidia"
     NVD_BACKEND "direct"
-
-    // Temporary Nvidia fix
-    // GSK_RENDERER "ngl"
     
     // Theming
     XCURSOR_SIZE "24"
