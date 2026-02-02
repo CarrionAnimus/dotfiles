@@ -185,7 +185,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon" "-q"
 spawn-at-startup "sh" "-c" "swayidle -w timeout 240 'niri msg action power-off-monitors' timeout 300 'swaylock --image ~/.cache/chopper/wallpaper'"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "kitty"
+spawn-at-startup "foot"
 spawn-at-startup "flatpak" "run" "com.github.wwmm.easyeffects"
 
 environment {
@@ -209,8 +209,6 @@ environment {
     // Theming
     XCURSOR_SIZE "24"
     XCURSOR_THEME "Vimix-Cursors"
-    HYPRCURSOR_SIZE "24"
-    HYPRCURSOR_THEME "Vimix-Cursors"
 
     QT_QPA_PLATFORMTHEME "qt6ct;qt5ct"
     QT_STYLE_OVERRIDE "kvantum"
@@ -290,7 +288,7 @@ animations {
 }
 
 binds {
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+E hotkey-overlay-title="Open a File Manager: nautilus" { spawn "nautilus"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "bash" "-c" "niri msg action power-off-monitors && swaylock --image ~/.cache/chopper/wallpaper"; }
