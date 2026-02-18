@@ -11,6 +11,3 @@ alias setup-gnome='~/.config/zsh/scripts/gnome.sh'
 alias boxy='~/.config/zsh/scripts/distrobox.sh'
 alias boxy-stop='~/.config/zsh/scripts/distrobox.sh q'
 alias boxy-rm='~/.config/zsh/scripts/distrobox.sh rm'
-
-# swww
-alias wall-set='~/.config/zsh/scripts/wall-set.sh'
