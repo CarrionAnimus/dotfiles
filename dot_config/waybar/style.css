@@ -1,0 +1,111 @@
+@define-color base #1e1e2e;
+@define-color crust #11111b;
+@define-color mantle #181825;
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color surface2 #585b70;
+@define-color text #cdd6f4;
+@define-color subtext0 #a6adc8;
+@define-color subtext1 #bac2de;
+@define-color overlay0 #6c7086;
+@define-color overlay1 #7f849c;
+@define-color overlay2 #9399b2;
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color background @base;
+@define-color hover @surface1;
+@define-color activeWorkspace @surface1;
+@define-color urgent @red;
+
+* {
+ border: none;
+ border-radius: 0.5rem;
+ font-family: "FiraCode Nerd Font Mono", monospace;
+ font-size: 1.1rem;
+ min-height: 0;
+}
+
+window#waybar {
+ background: @background;
+ color: @text;
+ padding: 0 0.5rem;
+}
+
+window#waybar.hidden {
+ opacity: 0.5;
+}
+
+tooltip {
+ background: @base;
+ border: 1px solid @text;
+}
+
+tooltip label {
+ color: @text;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+ background: @background;
+ color: @text;
+}
+
+.modules-left {
+ padding: 0;
+}
+
+.modules-center {
+ padding: 0 1rem;
+}
+
+.modules-right {
+ padding: 0 1rem;
+}
+
+#workspaces button {
+ background: transparent;
+ color: @subtext0;
+ transition:
+ background 0.2s ease,
+ color 0.2s ease,
+ opacity 0.2s ease;
+}
+
+#workspaces button.active {
+ background: @activeWorkspace;
+ color: @text;
+}
+
+#workspaces button:hover {
+ background: @hover;
+ color: @text;
+}
+
+#workspaces button.urgent {
+ background: @urgent;
+ color: @text;
+}
+
+#idle_inhibitor.activated {
+ color: @red;
+}
+
+#wireplumber.muted {
+ background: @urgent;
+ color: @text;
+ padding: 0 0.5rem;
+}
+

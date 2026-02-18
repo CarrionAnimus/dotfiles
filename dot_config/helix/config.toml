@@ -1,4 +1,4 @@
-theme = "moxer"
+theme = "mocha"
 
 [editor.cursor-shape]
 insert = "bar"
