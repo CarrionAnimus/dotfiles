@@ -182,11 +182,10 @@ spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface text-scali
 spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.wm.preferences button-layout :"
 
 spawn-at-startup "waybar"
-spawn-at-startup "swww-daemon" "-q"
+spawn-at-startup "sh" "-c" "swaybg -m fill -i ~/.cahe/chopper/wallpaper"
 spawn-at-startup "sh" "-c" "swayidle -w timeout 240 'niri msg action power-off-monitors' timeout 300 'swaylock --image ~/.cache/chopper/wallpaper'"
-spawn-at-startup "xwayland-satellite"
 spawn-at-startup "foot"
-spawn-at-startup "flatpak" "run" "com.github.wwmm.easyeffects"
+// spawn-at-startup "flatpak" "run" "com.github.wwmm.easyeffects"
 
 environment {
     DISPLAY ":0"
@@ -208,7 +207,7 @@ environment {
     
     // Theming
     XCURSOR_SIZE "24"
-    XCURSOR_THEME "Vimix-Cursors"
+    // XCURSOR_THEME "Vimix-Cursors"
 
     QT_QPA_PLATFORMTHEME "qt6ct;qt5ct"
     QT_STYLE_OVERRIDE "kvantum"
