@@ -24,4 +24,4 @@ cp --force "$WALLPAPER" ~/.cache/chopper/wallpaper
 pkill -x swaybg || true
 
 # Start the new wallpaper and disown the process
-swaybg -i ~/.cache/chopper/wallpaper -m fill
+swaybg -i ~/.cache/chopper/wallpaper -m fill & disown

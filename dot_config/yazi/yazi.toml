@@ -64,10 +64,10 @@ download = [
 	{ run = "ya emit download %S",        desc = "Download" },
 ]
 music = [
-	{ run = "mpv --audio-display=no --loop-playlist %s", block=true, desc = "Music", for = "linux" },
+	{ run = "mpv --audio-display=no --loop-playlist %s", block = true, desc = "Music", for = "linux" },
 ]
 wallpaper = [
-	{ run = "~/.config/zsh/scripts/wallpaper-set.sh %s1",    desc = "Set Wallpaper", for = "linux" },
+	{ run = "~/.config/zsh/scripts/wallpaper-set.sh %s1", orphan = true, desc = "Set Wallpaper", for = "linux" },
 ]
 
 [open]
