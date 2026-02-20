@@ -17,11 +17,13 @@ if [[ ! -f "$WALLPAPER" ]]; then
 fi
 
 # Copy the wallpaper to the cache directory
-cp --force "$WALLPAPER" ~/.cache/chopper/wallpaper
+WALLPAPER_DIR=$HOME/.cache/chopper
+mkdir -p ~/.cache/chopper
+cp --force "$WALLPAPER" "$WALLPAPER_DIR"/wallpaper
 
 # Kill any existing swaybg processes.
 # We use '|| true' to prevent the script from exiting if no processes are found.
 pkill -x swaybg || true
 
 # Start the new wallpaper and disown the process
-swaybg -i ~/.cache/chopper/wallpaper -m fill & disown
+swaybg -i "$WALLPAPER_DIR"/wallpaper -m fill & disown
