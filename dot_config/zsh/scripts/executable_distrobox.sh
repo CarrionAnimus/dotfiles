@@ -36,12 +36,12 @@ create_container (){
     podman volume create --ignore -l distrobox_package_cache debian_package_cache
 
     local CONTAINER_VARIANT=(
-        "ghcr.io/carrionanimus/cachyos-toolbox:latest"
+        "ghcr.io/ublue-os/arch-toolbox:latest"
         "quay.io/toolbx-images/debian-toolbox:unstable"
     )
 
     declare -A CONTAINER_CACHE
-    CONTAINER_CACHE["ghcr.io/carrionanimus/cachyos-toolbox:latest"]="arch_package_cache:/var/cache/pacman/pkg"
+    CONTAINER_CACHE["ghcr.io/ublue-os/arch-toolbox:latest"]="arch_package_cache:/var/cache/pacman/pkg"
     CONTAINER_CACHE["quay.io/toolbx-images/debian-toolbox:unstable"]="debian_package_cache:/var/cache/apt/archives"
 
     local SELECT_CONTAINER_VARIANT
@@ -49,17 +49,26 @@ create_container (){
 
     local CONTAINER_PACKAGE_CACHE="${CONTAINER_CACHE[$SELECT_CONTAINER_VARIANT]}"
 
+    local NETWORK_OPTIONS=(
+        "--network distrobox-alt_network"
+        "--network distrobox_network --network caddy_network"
+    )
+
+    local SELECTED_NETWORK
+    SELECTED_NETWORK=$(printf "%s\n" "${NETWORK_OPTIONS[@]}" | fzf)
+
     local CONTAINER_NAME
     read -rp "Enter Container Name: " CONTAINER_NAME
 
     distrobox-create --name "$CONTAINER_NAME" \
         --home "$DISTROBOX_HOME/$CONTAINER_NAME" --image "$SELECT_CONTAINER_VARIANT" --hostname "$CONTAINER_NAME" \
-        --volume "$CONTAINER_PACKAGE_CACHE" \
+        --volume "$CONTAINER_PACKAGE_CACHE":z \
         --volume /usr/share/vulkan/icd.d/nvidia_icd.x86_64.json:/usr/share/vulkan/icd.d/nvidia_icd.json:ro \
         --nvidia \
-        --additional-packages helix \
-        --unshare-devsys --unshare-groups --unshare-process \
-        --init-hooks "install -o 1000 -g 1000 -d /tmp/.X11-unix-$(cat /etc/hostname)-upper;install -o 1000 -g 1000 -d /tmp/.X11-unix-$(cat /etc/hostname)-work;mount -t overlay -o lowerdir=/tmp/.X11-unix,upperdir=/tmp/.X11-unix-$(cat /etc/hostname)-upper,workdir=/tmp/.X11-unix-$(cat /etc/hostname)-work overlay /tmp/.X11-unix"
+        --unshare-devsys --unshare-groups --unshare-process --unshare-ipc --unshare-netns --unshare-all \
+        --additional-flags "$SELECTED_NETWORK"
+
+        # --init-hooks "install -o 1000 -g 1000 -d /tmp/.X11-unix-$(cat /etc/hostname)-upper;install -o 1000 -g 1000 -d /tmp/.X11-unix-$(cat /etc/hostname)-work;mount -t overlay -o lowerdir=/tmp/.X11-unix,upperdir=/tmp/.X11-unix-$(cat /etc/hostname)-upper,workdir=/tmp/.X11-unix-$(cat /etc/hostname)-work overlay /tmp/.X11-unix"
 }
 
 clear_container_cache (){
