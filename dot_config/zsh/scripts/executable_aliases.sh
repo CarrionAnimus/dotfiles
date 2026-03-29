@@ -13,6 +13,7 @@ alias xzegrep='ug -zE'
 alias xzfgrep='ug -zF'
 
 # systemctl
+alias reload-nctk='systemctl restart nvidia-cdi-refresh.service'
 alias reload='systemctl --user daemon-reload'
 alias rwire='systemctl --user restart pipewire pipewire-pulse wireplumber'
 
