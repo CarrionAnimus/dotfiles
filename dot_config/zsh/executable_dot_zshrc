@@ -1,10 +1,9 @@
 
 #------------------#
 
-autoload -U compinit
-compinit
+autoload -U compinit; compinit
 
-#allow tab completion in the middle of a word
+# allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
 
 # case insensitive completion
@@ -26,7 +25,7 @@ bindkey "^[[1;5C" forward-word
 #setopt SHARE_HISTORY
 
 ## never ever beep ever
-#setopt NO_BEEP
+setopt NO_BEEP
 
 ## automatically decide when to page a list of completions
 #LISTMAX=0
@@ -40,7 +39,6 @@ bindkey "^[[1;5C" forward-word
 #------------------#
 
 # source scripts
-source ~/.config/zsh/scripts/bling.sh
 source ~/.config/zsh/scripts/completions.sh
 source ~/.config/zsh/scripts/aliases.sh
 source ~/.config/zsh/scripts/containers.sh

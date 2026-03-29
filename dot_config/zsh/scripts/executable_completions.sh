@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
-# bluebuild
-source <(bluebuild completions zsh)
-source /etc/profile
+source <(bluebuild completions zsh || true)
+eval "$(atuin init zsh || true)"
+eval "$(zoxide init zsh || true)"
+eval "$(starship init zsh || true)"
+source <(fzf --zsh)
