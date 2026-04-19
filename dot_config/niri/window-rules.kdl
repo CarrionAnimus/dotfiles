@@ -1,0 +1,102 @@
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+    open-maximized false
+}
+
+// Disable all screen capture
+window-rule {
+    block-out-from "screen-capture"
+}
+
+layer-rule {
+    block-out-from "screen-capture"
+}
+
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
+window-rule {
+    match app-id="^(xdg-desktop-portal-(gtk|gnome))$"
+    match app-id="^(thunar|Thunar|nautilus|Nautilus)$"
+    match app-id="^(discord|armcord|webcord|vesktop|foot)$"
+
+    opacity 0.90
+}
+
+window-rule {
+    match title="^(Picture-in-Picture|Picture in picture)$"
+
+    open-floating true
+    default-column-width { proportion 0.20; }
+    default-window-height { proportion 0.25; }
+    default-floating-position x=4 y=4 relative-to="bottom-left"
+
+    border {
+        on
+        width 1
+        active-gradient from="cdd6f4ee" to="94e2d5ee" angle=15
+        inactive-gradient from="cdd6f4ee" to="cdd6f4ee" angle=15 relative-to="workspace-view"
+    }
+}
+
+window-rule {
+    match title="^(All Files)$"
+    match title="^((Open|Save) File)$"
+    match title="^(Open (Folder|File))$"
+
+    match title="^((.+) — Krita)$"
+    match title="^(Project Manager|Import Media|Configure Krita)$"
+    match app-id="^(imv|mpv|org.pulseaudio.pavucontrol)$"
+
+    open-floating true
+    default-column-width { proportion 0.55; }
+    default-window-height { proportion 0.60; }
+}
+
+// Move to named workspaces
+window-rule {
+    match app-id="^(com.github.wwmm.easyeffects|foot|kitty)$"
+    
+    open-on-workspace "misc"
+}
+
+window-rule {
+    match app-id="^(trivalent)$"
+
+    open-on-workspace "browser"
+}
+
+window-rule {
+    match app-id="^(faugus-launcher|krita)$"
+    match app-id="^(steam_app_(.+))$"
+    
+    open-on-workspace "gaming"
+}
+
+// Maximize
+window-rule {
+    match app-id="^(krita)$"
+
+    open-maximized true
+}
