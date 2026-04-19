@@ -48,6 +48,7 @@ window-rule {
     match title="^(Picture-in-Picture|Picture in picture)$"
 
     open-floating true
+    open-focused false
     default-column-width { proportion 0.20; }
     default-window-height { proportion 0.25; }
     default-floating-position x=4 y=4 relative-to="bottom-left"
@@ -55,7 +56,7 @@ window-rule {
     border {
         on
         width 1
-        active-gradient from="cdd6f4ee" to="94e2d5ee" angle=15
+        active-gradient from="cdd6f4ee" to="94e2d5ee" angle=45 relative-to="workspace-view"
         inactive-gradient from="cdd6f4ee" to="cdd6f4ee" angle=15 relative-to="workspace-view"
     }
 }
@@ -100,3 +101,4 @@ window-rule {
 
     open-maximized true
 }
+
