@@ -1,0 +1,8 @@
+[Context]
+shared=ipc;network
+sockets=pulseaudio
+devices=shm
+features=devel
+
+[Environment]
+LD_PRELOAD=

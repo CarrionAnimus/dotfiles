@@ -1,0 +1,110 @@
+# Catppuccin Helix Theme
+# Palette: Mocha
+# Edit from Moxer: https://github.com/gokayburuc
+
+'attribute' = { fg = 'blue' }
+'comment' = { fg = 'overlay2', modifiers = ['italic'] }
+'comment.block' = { fg = 'green', modifiers = ['italic'] }
+'comment.block.documentation' = { fg = 'green', modifiers = ['italic'] }
+'constant' = { fg = 'mauve' }
+'constant.numeric' = { fg = 'peach' }
+'constructor' = { fg = 'mauve' }
+'function' = { fg = 'blue' }
+'function.builtin' = { fg = 'mauve' }
+'function.method' = { fg = 'blue' }
+'keyword' = { fg = 'mauve' }
+'label' = { fg = 'green' }
+'namespace' = { fg = 'blue' }
+'operator' = { fg = 'blue' }
+'punctuation.bracket' = { fg = 'overlay2' }
+'punctuation.delimiter' = { fg = 'overlay2', modifiers = ['bold'] }
+'punctuation.special' = { fg = 'mauve' }
+'string' = { fg = 'green' }
+'tag' = { fg = 'mauve' }
+'type' = { fg = 'blue' }
+'variable' = { fg = 'text' }
+'variable.parameter' = { fg = 'subtext0' }
+
+'markup.bold' = { fg = 'pink', modifiers = ['bold'] }
+'markup.italic' = { fg = 'mauve', modifiers = ['italic'] }
+'markup.strikethrough' = { modifiers = ['crossed_out'] }
+'markup.heading' = { fg = 'mauve' }
+'markup.link' = { fg = 'pink' }
+'markup.link.url' = { fg = 'peach' }
+'markup.link.text' = { fg = 'pink' }
+'markup.link.label' = { fg = 'green' }
+'markup.list' = { fg = 'mauve' }
+'markup.quote' = { fg = 'green', modifiers = ['italic'] }
+'markup.raw.block' = { fg = 'green', bg = 'surface0' }
+'markup.raw.inline' = { fg = 'green', bg = 'surface0' }
+
+'diff.plus' = { fg = 'green' }
+'diff.minus' = { fg = 'red' }
+'diff.delta' = { fg = 'blue' }
+
+'ui.background' = { bg = 'base' }
+'ui.cursor' = { bg = 'rosewater', fg = 'base' }
+'ui.cursor.match' = { fg = 'rosewater', modifiers = ['bold'] }
+'ui.cursorline' = { bg = 'surface0' }
+'ui.linenr' = { fg = 'subtext0' }
+'ui.linenr.selected' = { fg = 'rosewater', bg = 'surface0', modifiers = ['bold'] }
+'ui.statusline' = { fg = 'text', bg = 'mantle' }
+'ui.statusline.normal' = { bg = 'mantle', modifiers = ['bold'] }
+'ui.statusline.insert' = { bg = 'mantle', modifiers = ['bold'] }
+'ui.statusline.select' = { bg = 'mantle', modifiers = ['bold'] }
+'ui.bufferline' = { fg = 'overlay2', bg = 'mantle' }
+'ui.bufferline.active' = { fg = 'text', bg = 'surface0', modifiers = ['bold'] }
+'ui.bufferline.background' = { bg = 'mantle' }
+'ui.popup' = { bg = 'surface2' }
+'ui.window' = { fg = 'surface2' }
+'ui.help' = { fg = 'text', bg = 'surface2' }
+'ui.text' = { fg = 'text' }
+'ui.text.focus' = { fg = 'text', bg = 'surface0' }
+'ui.text.info' = { fg = 'text' }
+'ui.virtual.whitespace' = { fg = 'surface0' }
+'ui.virtual.ruler' = { bg = 'surface1' }
+'ui.menu' = { fg = 'text', bg = 'surface1' }
+'ui.menu.selected' = { bg = 'surface2', fg = 'text' }
+'ui.selection' = { bg = 'surface1' }
+
+'warning' = { fg = 'yellow' }
+'error' = { fg = 'red', modifiers = ['bold'] }
+'info' = { fg = 'blue', modifiers = ['bold'] }
+'hint' = { fg = 'blue', modifiers = ['bold'] }
+
+'diagnostic.hint' = { underline = { color = 'mauve', style = "curl" } }
+'diagnostic.error' = { underline = { color = 'red', style = "curl" } }
+'diagnostic.info' = { underline = { color = 'blue', style = "curl" } }
+'diagnostic.warning' = { underline = { color = 'yellow', style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+'special' = { fg = 'mauve' }
+
+[palette]
+rosewater = '#f5e0dc'
+flamingo = '#f2cdcd'
+pink = '#f5c2e7'
+mauve = '#cba6f7'
+red = '#f38ba8'
+maroon = '#eba0ac'
+peach = '#fab387'
+yellow = '#f9e2af'
+green = '#a6e3a1'
+teal = '#94e2d5'
+sky = '#89dceb'
+sapphire = '#74c7ec'
+blue = '#89b4fa'
+lavender = '#b4befe'
+text = '#cdd6f4'
+subtext1 = '#bac2de'
+subtext0 = '#a6adc8'
+overlay2 = '#9399b2'
+overlay1 = '#7f849c'
+overlay0 = '#6c7086'
+surface2 = '#585b70'
+surface1 = '#45475a'
+surface0 = '#313244'
+base = '#1e1e2e'
+mantle = '#181825'
+crust = '#11111b'
