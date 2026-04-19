@@ -5,7 +5,7 @@ workspace "gaming"
 
 // Startup
 prefer-no-csd
-spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface cursor-theme 'Vimix-Cursors'"
+// spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface cursor-theme 'Vimix-Cursors'"
 spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-mocha-teal-standard+default'"
 spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface icon-theme 'YAMIS'"
 spawn-at-startup "sh" "-c" "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
@@ -67,3 +67,4 @@ hotkey-overlay {
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // screenshot-path null
+
