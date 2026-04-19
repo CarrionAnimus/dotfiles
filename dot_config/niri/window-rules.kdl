@@ -19,20 +19,20 @@ window-rule {
 
     focus-ring {
         active-color "#f38ba8"
-        inactive-color "#7d0d2d"
+        inactive-color "#a6adc8"
     }
 
     border {
-        inactive-color "#7d0d2d"
+        inactive-color "#a6adc8"
     }
 
     shadow {
-        color "#7d0d2d70"
+        color "#a6adc880"
     }
 
     tab-indicator {
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
+        active-color "#f5c2e7"
+        inactive-color "#a6adc8"
     }
 }
 

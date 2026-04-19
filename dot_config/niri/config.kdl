@@ -115,14 +115,9 @@ layout {
         // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
-        inactive-color "6c7086aa"
-        active-gradient from="cdd6f4ee" to="94e2d5ee" angle=15
+        active-gradient from="#cdd6f4ee" to="#a6e3a1ee" angle=15 relative-to="workspace-view"
 
-        // inactive-gradient from="6c7086aa" to="6c7086aa" angle=45 relative-to="workspace-view"
-    }
-
-    border {
-        off
+        inactive-gradient from="#7f849c" to="#7f849c" angle=45 relative-to="workspace-view"
     }
 
     // You can enable drop shadows for windows.
@@ -159,7 +154,7 @@ layout {
         offset x=0 y=5
 
         // You can also change the shadow color and opacity.
-        color "#0007"
+        color "#6c708680"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
