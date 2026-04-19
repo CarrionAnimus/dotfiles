@@ -13,8 +13,8 @@ animations {
             vec4 open_color(vec3 coords_geo, vec3 size_geo) {
                 float time_factor = niri_progress * 20.0; 
 
-                float x_wobble = sin(coords_geo.x * 5.0 + time_factor) * 0.002;
-                float y_wobble = cos(coords_geo.y * 5.0 + time_factor) * 0.002;
+                float x_wobble = sin(coords_geo.x * 5.0 + time_factor) * 0.015;
+                float y_wobble = cos(coords_geo.y * 5.0 + time_factor) * 0.005;
 
                 vec3 distorted_coords = coords_geo + vec3(x_wobble, y_wobble, 0.0);
 
@@ -36,8 +36,8 @@ animations {
                 
                 float time_factor = niri_progress * 20.0 * decay_factor; 
 
-                float x_wobble = sin(coords_geo.x * 5.0 + time_factor) * 0.002 * decay_factor * 2.0;
-                float y_wobble = cos(coords_geo.y * 5.0 + time_factor) * 0.002 * decay_factor * 2.0;
+                float x_wobble = sin(coords_geo.x * 5.0 + time_factor) * 0.005 * decay_factor * 2.0;
+                float y_wobble = cos(coords_geo.y * 5.0 + time_factor) * 0.015 * decay_factor * 2.0;
 
                 vec3 distorted_coords = coords_geo + vec3(x_wobble, y_wobble, 0.0);
 
