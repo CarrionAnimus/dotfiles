@@ -20,6 +20,7 @@ fi
 WALLPAPER_DIR=$HOME/.cache/chopper
 mkdir -p ~/.cache/chopper
 cp --force "$WALLPAPER" "$WALLPAPER_DIR"/wallpaper
+magick "$WALLPAPER" -adaptive-blur 0x4 "$WALLPAPER_DIR"/wallpaper_blurred
 
 # Kill any existing swaybg processes.
 # We use '|| true' to prevent the script from exiting if no processes are found.
