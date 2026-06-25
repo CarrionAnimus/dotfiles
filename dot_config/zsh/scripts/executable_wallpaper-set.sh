@@ -2,6 +2,9 @@
 
 set -oue pipefail
 
+WALLPAPER_DIR=$HOME/.cache/chopper
+mkdir -p ~/.cache/chopper
+
 # Check if a file path is provided as an argument
 if [ -z "$1" ]; then
  echo "Usage: $0 <path_to_wallpaper>"
@@ -16,15 +19,11 @@ if [[ ! -f "$WALLPAPER" ]]; then
  exit 1
 fi
 
-# Copy the wallpaper to the cache directory
-WALLPAPER_DIR=$HOME/.cache/chopper
-mkdir -p ~/.cache/chopper
-cp --force "$WALLPAPER" "$WALLPAPER_DIR"/wallpaper
-magick "$WALLPAPER" -adaptive-blur 0x4 "$WALLPAPER_DIR"/wallpaper_blurred
-
-# Kill any existing swaybg processes.
-# We use '|| true' to prevent the script from exiting if no processes are found.
+# Set wallpaper
 pkill -x swaybg || true
+BG_COLOR=$(convert "$WALLPAPER" -resize 1x1 txt:- | rg -o "#[[:xdigit:]]{6}" | cut -c 2-)
+cp --force "$WALLPAPER" "$WALLPAPER_DIR"/wallpaper
+swaybg -i "$WALLPAPER_DIR"/wallpaper -m fit -c "$BG_COLOR" & disown
 
-# Start the new wallpaper and disown the process
-swaybg -i "$WALLPAPER_DIR"/wallpaper -m fill & disown
+# Lockscreen is done afterwards to speed up time to wallpaper
+magick "$WALLPAPER" -adaptive-blur 0x8 "$WALLPAPER_DIR"/wallpaper_blurred
