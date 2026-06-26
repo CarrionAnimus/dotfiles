@@ -27,11 +27,11 @@ window-rule {
     }
 
     shadow {
-        color "#a6adc880"
+        color "#6c708680"
     }
 
     tab-indicator {
-        active-color "#f5c2e7"
+        active-color "#a6e3a1"
         inactive-color "#a6adc8"
     }
 }
@@ -56,7 +56,7 @@ window-rule {
     border {
         on
         width 1
-        active-gradient from="cdd6f4ee" to="94e2d5ee" angle=45 relative-to="workspace-view"
+        active-gradient from="cdd6f4ee" to="#a6e3a1ee" angle=45 relative-to="workspace-view"
         inactive-gradient from="cdd6f4ee" to="cdd6f4ee" angle=15 relative-to="workspace-view"
     }
 }
