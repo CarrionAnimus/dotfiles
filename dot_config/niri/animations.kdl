@@ -2,20 +2,20 @@ animations {
     // https://easings.co
 
     workspace-switch {
-        duration-ms 50
-        curve "cubic-bezier" 0.5 1.5 0.25 1.5
+        duration-ms 200
+        curve "cubic-bezier" 0.4 0 0.2 1
     }
 
     window-open {
         duration-ms 600
-        curve "linear"
+        curve "cubic-bezier" 0.4 0 0.2 1
 
         custom-shader r"
             vec4 open_color(vec3 coords_geo, vec3 size_geo) {
                 float time_factor = niri_progress * 20.0; 
 
-                float x_wobble = sin(coords_geo.x * 5.0 + time_factor) * 0.015;
-                float y_wobble = cos(coords_geo.y * 5.0 + time_factor) * 0.005;
+                float x_wobble = sin(coords_geo.x * 5.0 + time_factor) * 0.005;
+                float y_wobble = cos(coords_geo.y * 5.0 + time_factor) * 0.002;
 
                 vec3 distorted_coords = coords_geo + vec3(x_wobble, y_wobble, 0.0);
 
@@ -29,7 +29,7 @@ animations {
 
     window-close {
         duration-ms 600
-        curve "linear"
+        curve "cubic-bezier" 0.4 0 0.2 1
 
         custom-shader r"
             vec4 close_color(vec3 coords_geo, vec3 size_geo) {
@@ -37,8 +37,8 @@ animations {
                 
                 float time_factor = niri_progress * 20.0 * decay_factor; 
 
-                float x_wobble = sin(coords_geo.x * 5.0 + time_factor) * 0.005 * decay_factor * 2.0;
-                float y_wobble = cos(coords_geo.y * 5.0 + time_factor) * 0.015 * decay_factor * 2.0;
+                float x_wobble = sin(coords_geo.x * 5.0 + time_factor) * 0.001 * decay_factor * 2.0;
+                float y_wobble = cos(coords_geo.y * 5.0 + time_factor) * 0.003 * decay_factor * 2.0;
 
                 vec3 distorted_coords = coords_geo + vec3(x_wobble, y_wobble, 0.0);
 
@@ -63,22 +63,22 @@ animations {
     }
 
     config-notification-open-close {
-        duration-ms 150
-        curve "cubic-bezier" 0.5 1.5 0.25 1.5
+        duration-ms 300
+        curve "cubic-bezier" 0.4 0 0.2 1
     }
       
     screenshot-ui-open {
-        duration-ms 50
-        curve "cubic-bezier" 0.5 1.5 0.25 1.5
+        duration-ms 250
+        curve "cubic-bezier" 0.4 0 0.2 1
     }
 
     overview-open-close {
         duration-ms 300
-        curve "cubic-bezier" 0.5 1.5 0.25 1.0
+        curve "cubic-bezier" 0.4 0 0.2 1
      }
 
     exit-confirmation-open-close {
-        duration-ms 150
-        curve "cubic-bezier" 0.5 1.5 0.25 1.5
+        duration-ms 300
+        curve "cubic-bezier" 0.4 0 0.2 1
     }
 }
